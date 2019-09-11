@@ -41,4 +41,5 @@
 	
 
 # Example
-- Design caculator UI
+- Design caculator UI using relative layout
+
