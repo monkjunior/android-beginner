@@ -11,9 +11,20 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-    String[] contents = { "Data-1", "Data-2", "Data-3", "Data-4", "Data-5",
+    String[] receivers = { "User-1", "User-2", "User-3", "User-4", "User-5",
+            "User-6", "User-7", "User-8", "User-9", "User-10", "User-11",
+            "User-12", "User-13", "User-14", "User-15" };
+
+    String[] mails = { "Data-1", "Data-2", "Data-3", "Data-4", "Data-5",
             "Data-6", "Data-7", "Data-8", "Data-9", "Data-10", "Data-11",
             "Data-12", "Data-13", "Data-14", "Data-15" };
+
+    Integer[] thumbnails = { R.drawable.ic_account_circle_black_24dp, R.drawable.ic_account_circle_black_24dp,
+            R.drawable.ic_account_circle_black_24dp, R.drawable.ic_account_circle_black_24dp, R.drawable.ic_account_circle_black_24dp,
+            R.drawable.ic_account_circle_black_24dp, R.drawable.ic_account_circle_black_24dp, R.drawable.ic_account_circle_black_24dp,
+            R.drawable.ic_account_circle_black_24dp, R.drawable.ic_account_circle_black_24dp, R.drawable.ic_account_circle_black_24dp,
+            R.drawable.ic_account_circle_black_24dp, R.drawable.ic_account_circle_black_24dp, R.drawable.ic_account_circle_black_24dp,
+            R.drawable.ic_account_circle_black_24dp};
 
     ListView myListView;
 
@@ -24,8 +35,13 @@ public class MainActivity extends Activity {
 
         myListView = (ListView) findViewById(R.id.myListView);
 
-        ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, contents);
+        CustomIconLabelAdapter aa = new CustomIconLabelAdapter(
+                this,
+                R.layout.custom_row,
+                receivers,
+                mails,
+                thumbnails
+        );
 
         myListView.setAdapter(aa);
 
@@ -33,7 +49,7 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 String text = "Position: " + position
-                        + "\nData: " + contents[position];
+                        + "\nData: " + mails[position];
                 Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
             }
         });
