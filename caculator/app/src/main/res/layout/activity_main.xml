@@ -7,9 +7,17 @@
     tools:context=".MainActivity">
 
     <EditText
+        android:id="@+id/edt2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="RESULT"/>
+
+    <EditText
         android:id="@+id/edt1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edt2"
+        android:inputType="number"/>
 
 
     <Button
